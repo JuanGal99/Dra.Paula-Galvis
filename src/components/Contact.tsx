@@ -308,12 +308,12 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Botón flotante de WhatsApp */}
+      {/* Botón flotante de WhatsApp — mensaje traducido según idioma activo */}
       <a
-        href="https://wa.me/573178870588?text=Hola%20quiero%20más%20info%20sobre%20odontología%20en%20Colombia"
+        href={`https://wa.me/573178870588?text=${encodeURIComponent(t("whatsappMessage"))}`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp"
+        aria-label="Contactar por WhatsApp"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[0_8px_30px_-4px_rgba(34,197,94,0.5)] transition-all duration-300 z-50"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-7 h-7">

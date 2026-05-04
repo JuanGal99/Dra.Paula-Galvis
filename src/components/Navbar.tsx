@@ -45,13 +45,13 @@ const Navbar = () => {
         {/* LOGO */}
         <a
           href="#hero"
-          className="flex items-center shrink-0 pr-6"
+          className="flex items-center shrink-0 pr-4"
           aria-label="Go to homepage"
         >
           <img
-            src="/logo.svg"
+            src="/logo.webp"
             alt="Paula Galvis"
-            className="h-12 sm:h-14 lg:h-[58px] w-auto object-contain select-none brightness-0 invert drop-shadow-[0_0_6px_rgba(255,255,255,0.25)] transition-all duration-300"
+            className="h-[155px] sm:h-[165px] lg:h-[175px] w-auto object-contain select-none mix-blend-lighten brightness-110 -translate-y-3 transition-all duration-300 hover:scale-105"
           />
         </a>
 

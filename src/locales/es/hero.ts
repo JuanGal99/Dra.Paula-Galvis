@@ -1,9 +1,8 @@
 const hero = {
-  "badge": "Odontología Especializada · Colombia",
-  "title": "Hoy es tu sonrisa",
-  "subtitle": "Estética dental y armonía facial",
-  "services": "Ver servicios",
-  "pacientI": "Solicitar cotización"
+  title: "Diseña tu sonrisa",
+  subtitle: "Odontología estética personalizada",
+  ctaPrimary: "Evaluación gratuita",
+  ctaSecondary: "Ver servicios"
 };
 
 export default hero;

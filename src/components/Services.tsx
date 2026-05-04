@@ -105,23 +105,25 @@ const Services = () => {
                   0{idx + 1}
                 </span>
 
-                {/* Ícono dorado único por servicio — decorativo, oculto a lectores de pantalla */}
-                <div className="mb-6 w-12 h-12 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/20 flex items-center justify-center group-hover:bg-[#C9A84C]/20 transition-colors duration-300">
-                  <svg
-                    className="w-6 h-6 text-[#C9A84C]"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {serviceIcons[service]}
-                  </svg>
-                </div>
+                {/* Ícono + Título en la misma línea */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="shrink-0 w-10 h-10 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/20 flex items-center justify-center group-hover:bg-[#C9A84C]/20 transition-colors duration-300">
+                    <svg
+                      className="w-5 h-5 text-[#C9A84C]"
+                      aria-hidden="true"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      {serviceIcons[service]}
+                    </svg>
+                  </div>
 
-                {/* Título */}
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#C9A84C] transition-colors duration-300 leading-snug">
-                  {title}
-                </h3>
+                  {/* Título */}
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#C9A84C] transition-colors duration-300 leading-snug">
+                    {title}
+                  </h3>
+                </div>
 
                 {/* Descripción — text-white/65 cumple ratio WCAG AA */}
                 <p className="text-white/65 text-sm mb-6 leading-relaxed font-light">

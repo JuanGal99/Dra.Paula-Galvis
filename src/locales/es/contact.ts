@@ -29,6 +29,8 @@ const contact = {
     email: "pagalvisp@gmail.com",
     socialTitle: "Redes sociales",
   },
+  // Mensaje preescrito que aparece al abrir WhatsApp
+  whatsappMessage: "Hola, quiero más información sobre tratamientos odontológicos en Colombia.",
 };
 
 export default contact;
