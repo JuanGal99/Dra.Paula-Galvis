@@ -30,14 +30,14 @@ const Navbar = () => {
     <nav
       className="fixed top-0 left-0 w-full bg-[#0B1527]/97 backdrop-blur-md border-b border-[#C9A84C]/15 z-50"
       role="navigation"
-      aria-label="Main navigation"
+      aria-label={t("mainNavigation")}
     >
       {/* Acceso rápido para lectores de pantalla */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only absolute top-2 left-2 bg-[#C9A84C] text-[#0B1527] px-4 py-2 rounded-md z-50 font-semibold"
       >
-        Skip to main content
+        {t("skipToContent")}
       </a>
 
       <div className="max-w-7xl mx-auto h-[82px] px-6 lg:px-8 flex items-center justify-between">
@@ -46,11 +46,13 @@ const Navbar = () => {
         <a
           href="#hero"
           className="flex items-center shrink-0 pr-4"
-          aria-label="Go to homepage"
+          aria-label={t("goHome")}
         >
           <img
             src="/logo.webp"
             alt="Paula Galvis"
+            width={420}
+            height={525}
             className="h-[155px] sm:h-[165px] lg:h-[175px] w-auto object-contain select-none mix-blend-lighten brightness-110 -translate-y-3 transition-all duration-300 hover:scale-105"
           />
         </a>
@@ -147,7 +149,7 @@ const Navbar = () => {
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 text-white/80 hover:text-[#C9A84C] rounded-md focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/70 transition-colors"
             type="button"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
           >

@@ -52,7 +52,7 @@ const TourismDental = () => {
               <div className="w-12 h-12 bg-[#C9A84C]/15 rounded-xl border border-[#C9A84C]/25 flex items-center justify-center flex-shrink-0">
                 <svg aria-hidden="true" className="w-6 h-6 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.800 6.200c-.5-.1-.9.1-1.100.5l-.3.5c-.2.5-.1 1 .3 1.300L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.500 5.300c.3.4.8.5 1.300.3l.5-.2c.4-.3.6-.7.5-1.200z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-white">{t("whyTitle")}</h3>
@@ -91,21 +91,23 @@ const TourismDental = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
 
             {[
-              { src: "/images/turismo-1.jpeg", city: "Cartagena", desc: "Ciudad moderna y acogedora" },
-              { src: "/images/turismo-2.jpeg", city: "San Andrés", desc: "Historia, mar y encanto colonial" },
-              { src: "/images/turismo-3.jpeg", city: "Cañón del Chicamocha", desc: "Aventura y paisajes inolvidables" },
-              { src: "/images/turismo-4.jpeg", city: "Mompox", desc: "Pueblo colonial con gran belleza" },
+              { src: "/images/turismo-1.webp", key: "cartagena" },
+              { src: "/images/turismo-2.webp", key: "sanAndres" },
+              { src: "/images/turismo-3.webp", key: "chicamocha" },
+              { src: "/images/turismo-4.webp", key: "mompox" },
             ].map((place) => (
-              <div key={place.city} className="group relative overflow-hidden rounded-2xl shadow-lg border border-[#C9A84C]/10 hover:border-[#C9A84C]/30 transition-colors duration-300">
+              <div key={place.key} className="group relative overflow-hidden rounded-2xl shadow-lg border border-[#C9A84C]/10 hover:border-[#C9A84C]/30 transition-colors duration-300">
                 <img
                   src={place.src}
-                  alt={place.city}
+                  alt={t(`destinations.${place.key}.name`)}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-72 object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1527]/85 via-[#0B1527]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-5">
-                  <p className="text-white text-base font-semibold">{place.city}</p>
-                  <p className="text-white/70 text-xs mt-0.5">{place.desc}</p>
+                  <p className="text-white text-base font-semibold">{t(`destinations.${place.key}.name`)}</p>
+                  <p className="text-white/70 text-xs mt-0.5">{t(`destinations.${place.key}.description`)}</p>
                 </div>
               </div>
             ))}

@@ -56,9 +56,9 @@ const services = {
   turismo: {
     title: "Turismo Odontológico",
     description:
-      "Atención dental asequible en los mejores destinos de Colombia.",
+      "Atención especializada a precios de Colombia, más bajos gracias a la tasa de cambio.",
     benefits: [
-      "Ahorra hasta un 60%",
+      "Costos más bajos por la tasa de cambio",
       "Combina tratamiento y vacaciones",
       "Asistencia en viaje y hospedaje",
     ],

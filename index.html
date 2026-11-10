@@ -1,26 +1,85 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/tooth.svg" />
+
+  <!-- La URL principal está en inglés: quien prefiere español pasa a /es/ antes de pintar la página -->
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem("language"); } catch (e) { }
+      var language = stored || ((navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en");
+      if (location.pathname === "/" && language === "es") location.replace("/es/" + location.hash);
+    })();
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/tooth.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0B1527" />
 
   <!-- Preload de la imagen hero (LCP principal) — carga anticipada antes del render -->
-  <link rel="preload" as="image" href="/images/img_principal.jpeg" fetchpriority="high" />
+  <link rel="preload" as="image" type="image/webp" href="/images/hero-1800.webp"
+    imagesrcset="/images/hero-1080.webp 1080w, /images/hero-1800.webp 1800w" imagesizes="100vw"
+    fetchpriority="high" />
 
-  <!-- Preconnect a Google Fonts — debe ir ANTES del stylesheet para resolver DNS anticipado -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />s
+  <!-- scripts/prerender.mjs reemplaza estos valores en cada idioma al compilar -->
+  <title>Dr. Paula Galvis — Orthodontist and Dental Tourism in Colombia</title>
+  <meta name="description" content="" />
+  <link rel="canonical" href="https://drapaulagalvis.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://drapaulagalvis.com/" />
+  <link rel="alternate" hreflang="en" href="https://drapaulagalvis.com/" />
+  <link rel="alternate" hreflang="es" href="https://drapaulagalvis.com/es/" />
 
-  <!-- Fuentes premium: Playfair Display (headings) + Poppins (cuerpo) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <!-- Vista previa al compartir en redes y WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Dra. Paula Galvis" />
+  <meta property="og:url" content="https://drapaulagalvis.com/" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="https://drapaulagalvis.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Dra. Paula Galvis" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_CO" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <meta name="description"
-    content="Your dental clinic in Colombia offering expert services in dental tourism, implants, and more. Book your appointment today!" />
-  <title>Dra. Paula Galvis — Odontología Premium</title>
+  <!-- Datos estructurados para buscadores -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "@id": "https://drapaulagalvis.com/#dentist",
+      "name": "Dra. Paula Galvis",
+      "description": "Specialized orthodontics, cosmetic dentistry and dental tourism in Colombia.",
+      "medicalSpecialty": "Dentistry",
+      "url": "https://drapaulagalvis.com/",
+      "image": "https://drapaulagalvis.com/images/og-image.jpg",
+      "telephone": "+573178870588",
+      "email": "pagalvisp@gmail.com",
+      "sameAs": ["https://instagram.com/dragalvis"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bucaramanga",
+        "addressCountry": "CO"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Bucaramanga" },
+        { "@type": "City", "name": "Ocaña" }
+      ],
+      "employee": {
+        "@type": "Person",
+        "name": "Paula Andrea Galvis Pérez",
+        "jobTitle": "Orthodontist",
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universidad Nacional de Colombia" },
+          { "@type": "CollegeOrUniversity", "name": "Universidad Santo Tomás" }
+        ]
+      }
+    }
+  </script>
 </head>
 
 <body>

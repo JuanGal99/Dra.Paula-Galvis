@@ -11,9 +11,10 @@ const Hero = () => {
       role="region"
     >
       <img
-        src="/images/img_principal.jpg"
-        alt=""
-        aria-hidden="true"
+        src="/images/hero-1800.webp"
+        srcSet="/images/hero-1080.webp 1080w, /images/hero-1800.webp 1800w"
+        sizes="100vw"
+        alt={t("imageAlt")}
         fetchPriority="high"
         decoding="auto"
         className="absolute inset-0 w-full h-full object-cover object-[38%_80%] sm:object-[35%_50%] md:object-[35%_30%] lg:object-[32%_30%] xl:object-[30%_30%]"

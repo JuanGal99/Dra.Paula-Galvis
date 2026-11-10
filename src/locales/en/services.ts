@@ -51,11 +51,11 @@ const services = {
 
   turismo: {
     title: "Dental Tourism",
-    description: "Affordable dental care in Colombia's top destinations.",
+    description: "Specialized care at Colombian prices, made lower by the exchange rate.",
     benefits: [
-      "Save up to 60%",
+      "Lower costs thanks to the exchange rate",
       "Combine treatment with vacation",
-      "Assistance with travel & stay",
+      "Help with travel and lodging",
     ],
   },
 };

@@ -22,7 +22,7 @@ const About = () => {
           <div className="lg:w-1/2 mb-12 lg:mb-0">
 
             {/* Etiqueta de sección — traducida por i18n */}
-            <span className="inline-block mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-[#C9A84C]">
+            <span className="inline-block mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-[#806419]">
               — {t("sectionLabel")}
             </span>
 
@@ -63,19 +63,19 @@ const About = () => {
           </div>
 
           {/* Foto con decoración dorada */}
-          <div className="lg:w-1/2 max-w-lg mx-auto relative">
+          <div className="lg:w-1/2 max-w-lg mx-auto relative isolate">
             {/* Sombra decorativa detrás */}
             <div className="absolute inset-0 bg-[#C9A84C]/20 rounded-2xl transform translate-x-4 translate-y-4 -z-10" />
             {/* Borde dorado decorativo en esquina */}
             <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-[#C9A84C] rounded-tl-xl -z-0 pointer-events-none" />
             <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-[#C9A84C] rounded-br-xl -z-0 pointer-events-none" />
             <img
-              src="/images/team.jpeg"
+              src="/images/team.webp"
               alt={t("imageAlt")}
               className="relative rounded-2xl shadow-2xl object-cover w-full border-2 border-[#C9A84C]/20"
               loading="lazy"
-              width={500}
-              height={400}
+              width={1024}
+              height={790}
             />
           </div>
 

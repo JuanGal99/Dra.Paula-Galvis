@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 
 // Claves de servicios
 const services = [
+  "ortodoncia",
   "estetica",
   "armonizacion",
-  "ortodoncia",
   "rehabilitacion",
   "general",
   "turismo",
@@ -13,36 +13,54 @@ const services = [
 
 type ServiceKey = (typeof services)[number];
 
-// Iconos SVG más acordes por servicio
+const TOOTH_PATH =
+  "M12 5.5C10.9 4.9 9.4 4 8 4 5.9 4 4 5.25 4 9c0 4.9 1.06 8.4 2.67 10.54.57.75 1.97.52 2.57-.24.4-.5.82-1.44 1.26-2.8.29-.77.89-1.5 1.5-1.5s1.21.74 1.5 1.5c.44 1.36.86 2.3 1.26 2.8.6.76 2 .99 2.57.24C18.94 17.4 20 13.9 20 9c0-3.74-1.9-5-4-5-1.42 0-2.92.91-4 1.5z";
+
+// Iconos de línea sobre cuadrícula de 24: el trazo y las puntas se definen en el <svg>
 const serviceIcons: Record<ServiceKey, JSX.Element> = {
-  // Ícono de diente para Estética Dental
+  // Diente con destello
   estetica: (
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-      d="M12 3C9.5 3 7.5 4.5 7 6.5c-.3 1.2-.5 2.5-.6 3.7C6.2 12.5 6 14 5 16c-.5 1.2-.8 2.5-.5 3.5.3 1 1.2 1.5 2 1.5.8 0 1.5-.5 2-1.2L12 17l3.5 2.8c.5.7 1.2 1.2 2 1.2.8 0 1.7-.5 2-1.5.3-1 0-2.3-.5-3.5-1-2-1.2-3.5-1.4-5.8-.1-1.2-.3-2.5-.6-3.7C16.5 4.5 14.5 3 12 3z"
-    />
+    <>
+      <path d={TOOTH_PATH} transform="translate(-1.6 3.4) scale(.82)" strokeWidth="1.83" />
+      <path d="M18.3 2c.4 2.3 1.4 3.4 3.7 3.8-2.3.4-3.3 1.5-3.7 3.8-.4-2.3-1.4-3.4-3.7-3.8 2.3-.4 3.3-1.5 3.7-3.8z" />
+    </>
   ),
+  // Perfil con destello en la mejilla
   armonizacion: (
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+    <>
+      <path d="M9.2 21.5v-2.2l-1.5.2c-1.7.2-2.9-.8-2.9-2.5v-1.8l-1.300-.4c-.5-.2-.7-.7-.4-1.100l1.700-2.900c.3-3.800 3.300-7.800 8.700-7.800 4.400 0 7.300 3 7.300 7 0 2.600-1.100 4.500-2.800 6v5.500" />
+      <path d="M12.500 10.300c.3 1.500 1 2.200 2.400 2.500-1.400.3-2.100 1-2.400 2.500-.3-1.500-1-2.200-2.400-2.500 1.400-.3 2.100-1 2.400-2.500z" />
+    </>
   ),
+  // Diente con bracket y arco de alambre
   ortodoncia: (
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+    <>
+      <path d={TOOTH_PATH} />
+      <rect x="9.25" y="7.75" width="5.5" height="5.5" rx="1.1" />
+      <path d="M4.1 10.5h5.15M14.75 10.5h5.15" />
+    </>
   ),
+  // Implante: corona, pilar y rosca
   rehabilitacion: (
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+    <>
+      <path d="M8.2 2.5c1.3 0 2.5.7 3.8.7s2.5-.7 3.8-.7c1.7 0 2.7 1.2 2.7 3 0 2-.7 3.9-1.9 4.7H7.4C6.2 9.400 5.500 7.500 5.500 5.500c0-1.800 1-3 2.700-3z" />
+      <path d="M9.800 10.200v2.300h4.400v-2.300" />
+      <path d="M8.200 15h7.600" />
+      <path d="M9 17.600h6" />
+      <path d="M10 20.100h4" />
+      <path d="M11.300 22.200h1.400" />
+    </>
   ),
+  // Diente sano
   general: (
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+    <>
+      <path d={TOOTH_PATH} />
+      <path d="M8.800 9.800l2.300 2.300 4-4.300" />
+    </>
   ),
+  // Avión
   turismo: (
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
-      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    <path d="M17.800 19.200 16 11l3.500-3.500C21 6 21.500 4 21 3c-1-.5-3 0-4.500 1.500L13 8 4.800 6.200c-.5-.1-.9.1-1.100.5l-.3.5c-.2.5-.1 1 .3 1.300L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.500 5.300c.3.4.8.5 1.300.3l.5-.2c.4-.3.6-.7.5-1.200z" />
   ),
 };
 
@@ -81,7 +99,7 @@ const Services = () => {
 
         {/* Grid de tarjetas */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, idx) => {
+          {services.map((service) => {
             const title = t(`${service}.title`);
             const description = t(`${service}.description`);
             const benefits = t(`${service}.benefits`, {
@@ -100,24 +118,20 @@ const Services = () => {
                 {/* Barra superior dorada animada */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#C9A84C] to-[#E0BC6A] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-                {/* Número de tarjeta */}
-                <span className="absolute top-5 right-5 text-xs font-bold text-[#C9A84C]/30 tracking-widest select-none">
-                  0{idx + 1}
-                </span>
-
                 {/* Ícono + Título en la misma línea */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="shrink-0 w-10 h-10 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/20 flex items-center justify-center group-hover:bg-[#C9A84C]/20 transition-colors duration-300">
-                    <svg
-                      className="w-5 h-5 text-[#C9A84C]"
-                      aria-hidden="true"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      {serviceIcons[service]}
-                    </svg>
-                  </div>
+                <div className="flex items-center gap-4 mb-4">
+                  <svg
+                    className="shrink-0 w-9 h-9 text-[#C9A84C]"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    {serviceIcons[service]}
+                  </svg>
 
                   {/* Título */}
                   <h3 className="text-lg font-bold text-white group-hover:text-[#C9A84C] transition-colors duration-300 leading-snug">

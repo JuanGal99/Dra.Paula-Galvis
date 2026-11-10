@@ -1,32 +1,34 @@
 const tourismDental = {
-  sectionLabel: "Medical Tourism",
+  sectionLabel: "Dental Travel",
   title: "Dental Tourism with Dr. Paula Galvis",
-  destinosTitle: "Destinations to visit in Colombia",
-  whyTitle: "What is it and Why Choose Dr. Paula Galvis?",
+  destinosTitle: "Places to visit in Colombia",
+  destinations: {
+    cartagena: { name: "Cartagena", description: "Caribbean beaches and a walled old city" },
+    sanAndres: { name: "San Andrés", description: "The sea of seven colors" },
+    chicamocha: { name: "Chicamocha Canyon", description: "Adventure and unforgettable scenery" },
+    mompox: { name: "Mompox", description: "A colonial town on the Magdalena River" },
+  },
+  whyTitle: "What it is and why choose Dr. Paula Galvis",
   whyDescription:
-    "We offer a complete experience that combines high-quality dental care with tourism in Colombia. You can visit incredible places like: Bucaramanga the beautiful city, the imposing Chicamocha Canyon, Barichara the most beautiful town in Colombia, and Cartagena the walled city, among others.",
+    "Combine specialized dental care with a trip through Colombia. Thanks to the exchange rate, your treatment can cost less than it would back home. Depending on what you enjoy, you can head to the coast, to places like Cartagena or San Andrés, or explore the towns and landscapes near Bucaramanga, such as Barichara and the Chicamocha Canyon.",
 
-  servicesIncludedTitle: "Included Services",
+  servicesIncludedTitle: "What's included",
   servicesIncluded: [
-    "Bilingual accompaniment",
+    "Bilingual support",
     "Treatment planning",
-    "Assistance with lodging and transportation",
-    "Touristic recommendations",
+    "Help with lodging and transportation",
+    "Travel recommendations",
   ],
 
-  processTitle: "Step-by-Step Process",
+  processTitle: "How it works",
   processSteps: [
-    "Initial consultation and remote diagnosis",
-    "Personalized travel and treatment planning",
-    "Reception and accompaniment in Colombia",
+    "Remote consultation and initial diagnosis",
+    "Personalized treatment and travel plan",
+    "Arrival and in-person support in Colombia",
     "Dental treatment",
-    "Touristic recommendations and activities",
-    "Post-treatment follow-up remotely",
+    "Travel recommendations and activities",
+    "Remote follow-up after treatment",
   ],
-
-  partnersTitle: "Travel Agency Partnerships",
-
-  testimonialsTitle: "Success Stories from Patients",
 };
 
 export default tourismDental;

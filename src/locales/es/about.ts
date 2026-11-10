@@ -1,12 +1,12 @@
 const about = {
-  sectionLabel: "Nuestra Clínica",
-  title: "Sobre Nuestra Clínica",
+  sectionLabel: "Conócenos",
+  title: "Dra. Paula Galvis, ortodoncista",
   description:
-    "Nacimos con la visión de ofrecer una atención odontológica de excelencia, enfocada en la calidad, la confianza y el bienestar del paciente. Nos dedicamos a brindar una experiencia cómoda y segura, respaldada por un servicio profesional desde el primer contacto. ",
-  point1: "Profesionales altamente comprometidos",
-  point2: "Tratamientos estéticos y funcionales",
-  point3: "Ubicados en uno de los destinos turísticos más destacados de Colombia",
-  imageAlt: "Nuestro equipo dental sonriendo en la clínica",
+    "La Dra. Paula Galvis es odontóloga de la Universidad Nacional de Colombia y especialista en ortodoncia de la Universidad Santo Tomás. Atiende principalmente en Bucaramanga y también en Ocaña, Norte de Santander. La acompaña su mamá, la Dra. Judith Paulina Pérez Patiño, odontóloga general.",
+  point1: "Ortodoncia a cargo de una especialista",
+  point2: "Odontología general con la Dra. Judith Pérez",
+  point3: "Atención en Bucaramanga y Ocaña, Colombia",
+  imageAlt: "La Dra. Paula Galvis junto a su mamá, la Dra. Judith Pérez",
 };
 
 export default about;

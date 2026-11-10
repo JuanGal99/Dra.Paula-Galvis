@@ -8,6 +8,9 @@ const navbar = {
   cta: "Agendar cita",
   openMenu: "Abrir menú",
   closeMenu: "Cerrar menú",
+  mainNavigation: "Navegación principal",
+  skipToContent: "Saltar al contenido principal",
+  goHome: "Ir al inicio",
 };
 
 export default navbar;
