@@ -21,11 +21,18 @@ const replaceOrFail = (html, pattern, replacement) => {
 const escapeAttribute = (value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 
 const { render } = await import(pathToFileURL(path.join(SSR_DIR, "entry-server.js")).href);
-const template = await readFile(path.join(DIST_DIR, "index.html"), "utf-8");
+const builtTemplate = await readFile(path.join(DIST_DIR, "index.html"), "utf-8");
+
+// Los estilos van dentro del HTML: la página puede pintarse sin esperar otra descarga
+const stylesheetPattern = /<link rel="stylesheet" crossorigin href="\/assets\/([^"]+\.css)">/;
+const stylesheet = builtTemplate.match(stylesheetPattern);
+if (!stylesheet) throw new Error("Prerender: no se encontró la hoja de estilos");
+const css = await readFile(path.join(DIST_DIR, "assets", stylesheet[1]), "utf-8");
+const template = builtTemplate.replace(stylesheetPattern, () => `<style>${css}</style>`);
 
 // Las dos fuentes visibles al cargar: el título y el texto normal
 const assets = await readdir(path.join(DIST_DIR, "assets"));
-const fontPreloads = [/^playfair-display-latin-800-normal.*\.woff2$/, /^poppins-latin-400-normal.*\.woff2$/]
+const fontPreloads = [/^fraunces-latin-600-normal.*\.woff2$/, /^figtree-latin-400-normal.*\.woff2$/]
   .map((pattern) => {
     const font = assets.find((asset) => pattern.test(asset));
     if (!font) throw new Error(`Prerender: no se encontró la fuente ${pattern}`);
@@ -33,10 +40,22 @@ const fontPreloads = [/^playfair-display-latin-800-normal.*\.woff2$/, /^poppins-
   })
   .join("\n  ");
 
+// Archivos JavaScript del navegador, para ubicar el de los textos de cada idioma
+const scripts = await Promise.all(
+  assets
+    .filter((asset) => asset.endsWith(".js"))
+    .map(async (asset) => ({ asset, code: await readFile(path.join(DIST_DIR, "assets", asset), "utf-8") }))
+);
+
 for (const page of PAGES) {
   const { appHtml, title, description } = await render(page.language);
   const safeTitle = escapeAttribute(title);
   const safeDescription = escapeAttribute(description);
+
+  // Los textos del idioma se piden junto con el código principal, sin esperar a que este los solicite
+  const localeScript = scripts.find(({ code }) => code.includes(title));
+  if (!localeScript) throw new Error(`Prerender: no se encontraron los textos de ${page.language}`);
+  const localePreload = `<link rel="modulepreload" crossorigin href="/assets/${localeScript.asset}" />`;
 
   const replacements = [
     [/<html lang="[^"]*"/, `<html lang="${page.language}"`],
@@ -48,7 +67,7 @@ for (const page of PAGES) {
     [/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${safeDescription}" />`],
     [/<meta property="og:locale" content="[^"]*" \/>/, `<meta property="og:locale" content="${page.locale}" />`],
     [/<meta property="og:locale:alternate" content="[^"]*" \/>/, `<meta property="og:locale:alternate" content="${page.alternateLocale}" />`],
-    [/<\/head>/, `  ${fontPreloads}\n</head>`],
+    [/<\/head>/, `  ${fontPreloads}\n  ${localePreload}\n</head>`],
     [/<div id="root"><\/div>/, `<div id="root">${appHtml}</div>`],
   ];
 

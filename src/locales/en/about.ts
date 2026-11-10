@@ -1,5 +1,4 @@
 const about = {
-  sectionLabel: "Meet the doctor",
   title: "Dr. Paula Galvis, Orthodontist",
   description:
     "Dr. Paula Galvis earned her dental degree at Universidad Nacional de Colombia and her specialty in orthodontics at Universidad Santo Tomás. She sees patients mainly in Bucaramanga and also in Ocaña, Norte de Santander. She is joined by her mother, Dr. Judith Paulina Pérez Patiño, a general dentist.",

@@ -29,3 +29,5 @@ dist-ssr
 
 #dependency directories
 node_modules/
+# Fotos originales de pacientes: no se publican en GitHub
+fotos-originales/

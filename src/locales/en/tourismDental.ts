@@ -1,12 +1,13 @@
 const tourismDental = {
-  sectionLabel: "Dental Travel",
-  title: "Dental Tourism with Dr. Paula Galvis",
+  title: "Dental travel to Colombia",
+  lead: "Get treated in Bucaramanga and get help planning the rest of your trip.",
   destinosTitle: "Places to visit in Colombia",
+  destinosLead: "After treatment, head to the coast or explore towns and landscapes. We'll help you plan it.",
   destinations: {
-    cartagena: { name: "Cartagena", description: "Caribbean beaches and a walled old city" },
-    sanAndres: { name: "San Andrés", description: "The sea of seven colors" },
-    chicamocha: { name: "Chicamocha Canyon", description: "Adventure and unforgettable scenery" },
-    mompox: { name: "Mompox", description: "A colonial town on the Magdalena River" },
+    cartagena: { tag: "Beach", name: "Cartagena", description: "Caribbean beaches and a walled old city" },
+    sanAndres: { tag: "Beach", name: "San Andrés", description: "The sea of seven colors" },
+    chicamocha: { tag: "Adventure near Bucaramanga", name: "Chicamocha Canyon", description: "Rafting and canyon views" },
+    mompox: { tag: "Colonial town", name: "Mompox", description: "A colonial town on the Magdalena River" },
   },
   whyTitle: "What it is and why choose Dr. Paula Galvis",
   whyDescription:
@@ -14,7 +15,8 @@ const tourismDental = {
 
   servicesIncludedTitle: "What's included",
   servicesIncluded: [
-    "Bilingual support",
+    "Bilingual support from start to finish",
+    "Guidance from the moment you land",
     "Treatment planning",
     "Help with lodging and transportation",
     "Travel recommendations",
@@ -22,12 +24,12 @@ const tourismDental = {
 
   processTitle: "How it works",
   processSteps: [
-    "Remote consultation and initial diagnosis",
+    "Free virtual consultation and personalized quote",
     "Personalized treatment and travel plan",
     "Arrival and in-person support in Colombia",
     "Dental treatment",
     "Travel recommendations and activities",
-    "Remote follow-up after treatment",
+    "Virtual check-ins and remote follow-up",
   ],
 };
 

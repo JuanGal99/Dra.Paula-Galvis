@@ -1,6 +1,7 @@
 const services = {
-  title: "Nuestros Servicios",
-  sectionLabel: "Lo que ofrecemos",
+  title: "Tratamientos",
+  lead: "Su especialidad es la ortodoncia. También ofrece tratamientos estéticos y de salud oral.",
+  specialtyLabel: "Su especialidad",
   cta: "Solicitar cotización",
 
   estetica: {
@@ -25,17 +26,17 @@ const services = {
 
   ortodoncia: {
     title: "Ortodoncia",
-    description: "Corrige dientes desalineados y mejora tu mordida.",
+    description: "Corrige tu sonrisa con alineadores invisibles y controles virtuales desde tu país.",
     benefits: [
       "Alineadores invisibles",
       "Brackets",
-      "Mejora funcional de la mordida",
+      "Controles virtuales",
     ],
   },
 
   rehabilitacion: {
     title: "Rehabilitación Oral",
-    description: "Tratamientos integrales de restauración dental.",
+    description: "Tratamientos integrales para recuperar la función y la estética de tu sonrisa.",
     benefits: [
       "Restauración total de la boca",
       "Prótesis personalizadas",

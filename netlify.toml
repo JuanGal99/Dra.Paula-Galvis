@@ -5,6 +5,15 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Quien tiene el navegador en español pasa a /es/ desde el servidor, sin esperar a que cargue la página.
+# La cookie nf_lang, que guardan las banderas del menú, tiene prioridad sobre el idioma del navegador.
+[[redirects]]
+  from = "/"
+  to = "/es/"
+  status = 302
+  force = true
+  conditions = { Language = ["es"] }
+
 [[headers]]
   for = "/*"
   [headers.values]

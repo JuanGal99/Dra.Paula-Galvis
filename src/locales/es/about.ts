@@ -1,5 +1,4 @@
 const about = {
-  sectionLabel: "Conócenos",
   title: "Dra. Paula Galvis, ortodoncista",
   description:
     "La Dra. Paula Galvis es odontóloga de la Universidad Nacional de Colombia y especialista en ortodoncia de la Universidad Santo Tomás. Atiende principalmente en Bucaramanga y también en Ocaña, Norte de Santander. La acompaña su mamá, la Dra. Judith Paulina Pérez Patiño, odontóloga general.",

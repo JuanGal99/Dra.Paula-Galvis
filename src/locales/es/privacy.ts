@@ -17,7 +17,7 @@ const privacy = {
     {
       heading: "2. Datos que recogemos",
       paragraphs: [
-        "A través del formulario recogemos tu nombre, correo electrónico, país y mensaje y, si decides darlos, tu teléfono y el tratamiento que te interesa.",
+        "A través del formulario recogemos tu nombre, correo electrónico, teléfono, país, el medio por el que prefieres que te contactemos y tu mensaje y, si decides darlo, el tratamiento que te interesa.",
       ],
     },
     {
@@ -29,7 +29,7 @@ const privacy = {
     {
       heading: "4. Finalidades",
       items: [
-        "Responder tus preguntas y solicitudes.",
+        "Contactarte por el medio que elijas (WhatsApp, Telegram, mensaje de texto, llamada o correo) para responder tus preguntas y solicitudes.",
         "Darte orientación inicial y agendar tu evaluación o cita.",
         "Coordinar la planificación de tu tratamiento y el acompañamiento de tu viaje, cuando lo solicites.",
       ],
@@ -40,8 +40,9 @@ const privacy = {
     {
       heading: "5. Proveedores y transferencia internacional",
       paragraphs: [
-        "Los mensajes del formulario se transmiten mediante Formspree y se reciben en una cuenta de correo de Google. Estos proveedores pueden almacenar la información en servidores fuera de Colombia, incluidos los Estados Unidos. Si nos escribes por WhatsApp, también aplican las condiciones de ese servicio.",
+        "Los mensajes del formulario se transmiten mediante Formspree y se reciben en una cuenta de correo de Google. Estos proveedores pueden almacenar la información en servidores fuera de Colombia, incluidos los Estados Unidos. Si nos comunicamos por WhatsApp o Telegram, también aplican las condiciones de ese servicio.",
         "Si solicitas odontología general, compartiremos tus datos con la Dra. Judith Paulina Pérez Patiño, la odontóloga que te atendería.",
+        "Si solicitas rehabilitación oral o carillas cerámicas, compartiremos tus datos con el odontólogo especialista en rehabilitación oral que te atendería.",
       ],
     },
     {

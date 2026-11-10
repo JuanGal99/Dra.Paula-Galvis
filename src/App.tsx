@@ -6,6 +6,8 @@ import Services from "./components/Services";
 import TourismDental from "./components/TourismDental";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Faq from "./components/Faq";
+import BeforeAfter from "./components/BeforeAfter";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 
 /**
@@ -32,7 +34,9 @@ function App() {
         <Hero />
         <About />
         <Services />
+        <BeforeAfter />
         <TourismDental />
+        <Faq />
         <Contact onOpenPrivacyPolicy={openPrivacyPolicy} />
       </main>
       <Footer onOpenPrivacyPolicy={openPrivacyPolicy} />

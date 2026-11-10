@@ -1,6 +1,7 @@
 const services = {
-  title: "Our Dental Services",
-  sectionLabel: "What we offer",
+  title: "Treatments",
+  lead: "Her specialty is orthodontics. She also offers cosmetic and oral health treatments.",
+  specialtyLabel: "Her specialty",
   cta: "Request a Quote",
 
   estetica: {
@@ -21,17 +22,17 @@ const services = {
 
   ortodoncia: {
     title: "Orthodontics",
-    description: "Correct misaligned teeth and improve your bite.",
+    description: "Straighten your smile with clear aligners and virtual check-ins from home.",
     benefits: [
       "Clear aligners",
       "Braces",
-      "Enhanced bite function",
+      "Virtual check-ins",
     ],
   },
 
   rehabilitacion: {
     title: "Oral Rehabilitation",
-    description: "Comprehensive dental restoration treatments.",
+    description: "Comprehensive treatments to restore the function and look of your smile.",
     benefits: [
       "Full-mouth restoration",
       "Custom prosthetics",

@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Fraunces para títulos (cálida, de curvas suaves) y Figtree para el texto (clara en pantalla) */
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+}
+
 /* =========================================================
    Variables globales del sistema de diseño premium
    Paleta: Navy #0B1527  ·  Oro #C9A84C  ·  Marfil #FAFAF8
@@ -18,7 +29,7 @@
 
 /* Fuente base global */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--color-ivory);
   color: var(--color-text-dark);
   -webkit-font-smoothing: antialiased;

@@ -17,7 +17,7 @@ const privacy = {
     {
       heading: "2. Data we collect",
       paragraphs: [
-        "Through the form we collect your name, email address, country and message and, if you choose to provide them, your phone number and the treatment you are interested in.",
+        "Through the form we collect your name, email address, phone number, country, how you prefer to be contacted and your message and, if you choose to provide it, the treatment you are interested in.",
       ],
     },
     {
@@ -29,7 +29,7 @@ const privacy = {
     {
       heading: "4. Purposes",
       items: [
-        "Answering your questions and requests.",
+        "Contacting you through the channel you choose (WhatsApp, Telegram, text message, phone call or email) to answer your questions and requests.",
         "Providing initial guidance and scheduling your evaluation or appointment.",
         "Coordinating your treatment planning and travel support, when you request it.",
       ],
@@ -40,8 +40,9 @@ const privacy = {
     {
       heading: "5. Service providers and international transfer",
       paragraphs: [
-        "Form messages are transmitted through Formspree and received in a Google email account. These providers may store the information on servers outside Colombia, including in the United States. If you contact us on WhatsApp, that service's terms also apply.",
+        "Form messages are transmitted through Formspree and received in a Google email account. These providers may store the information on servers outside Colombia, including in the United States. If we communicate through WhatsApp or Telegram, that service's terms also apply.",
         "If you request general dentistry, we will share your data with Dr. Judith Paulina Pérez Patiño, the dentist who would treat you.",
+        "If you request oral rehabilitation or ceramic veneers, we will share your data with the oral rehabilitation specialist who would treat you.",
       ],
     },
     {

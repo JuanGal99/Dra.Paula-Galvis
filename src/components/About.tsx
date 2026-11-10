@@ -15,27 +15,18 @@ const About = () => {
       aria-labelledby="about-heading"
       role="region"
     >
-      <div className="max-w-6xl mx-auto text-center lg:text-left">
+      <div className="max-w-6xl mx-auto">
         <div className="lg:flex lg:items-center lg:gap-16">
 
           {/* Contenido textual */}
           <div className="lg:w-1/2 mb-12 lg:mb-0">
 
-            {/* Etiqueta de sección — traducida por i18n */}
-            <span className="inline-block mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-[#806419]">
-              — {t("sectionLabel")}
-            </span>
-
             <h2
               id="about-heading"
-              className="text-4xl md:text-5xl font-extrabold mb-3 text-[#0B1527] tracking-tight leading-tight"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              className="text-4xl md:text-5xl font-semibold mb-6 text-[#0B1527] tracking-tight leading-[1.1]"
             >
               {t("title")}
             </h2>
-
-            {/* Línea decorativa dorada */}
-            <div className="mb-8 w-14 h-[3px] bg-gradient-to-r from-[#C9A84C] to-[#E0BC6A] rounded-full mx-auto lg:mx-0" />
 
             <p className="text-lg leading-relaxed text-slate-600 mb-8 font-light">
               {t("description")}
@@ -71,6 +62,8 @@ const About = () => {
             <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-[#C9A84C] rounded-br-xl -z-0 pointer-events-none" />
             <img
               src="/images/team.webp"
+              srcSet="/images/team-640.webp 640w, /images/team.webp 1024w"
+              sizes="(min-width: 1024px) 512px, calc(100vw - 48px)"
               alt={t("imageAlt")}
               className="relative rounded-2xl shadow-2xl object-cover w-full border-2 border-[#C9A84C]/20"
               loading="lazy"

@@ -1,11 +1,11 @@
 import { StrictMode } from "react";
 import { renderToString } from "react-dom/server";
 import App from "./App";
-import i18n from "./i18n";
+import i18n, { switchLanguage } from "./i18n";
 
 /** Usado solo al compilar por scripts/prerender.mjs. */
 export async function render(language: "en" | "es") {
-  await i18n.changeLanguage(language);
+  await switchLanguage(language);
 
   return {
     appHtml: renderToString(

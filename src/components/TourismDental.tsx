@@ -1,4 +1,13 @@
 import { useTranslation } from "react-i18next";
+import SectionHeading from "./SectionHeading";
+
+// En escritorio: Cartagena (foto vertical) ocupa dos filas y San Andrés (foto ancha) dos columnas
+const DESTINATIONS = [
+  { src: "/images/turismo-1.webp", key: "cartagena", layout: "sm:row-span-2", position: "object-center" },
+  { src: "/images/turismo-2.webp", key: "sanAndres", layout: "lg:col-span-2", position: "object-[50%_60%]" },
+  { src: "/images/turismo-3.webp", key: "chicamocha", layout: "", position: "object-center" },
+  { src: "/images/turismo-4.webp", key: "mompox", layout: "sm:col-span-2 lg:col-span-1", position: "object-[30%_50%]" },
+];
 
 // Type guard para arrays de strings
 function isStringArray(value: unknown): value is string[] {
@@ -28,20 +37,7 @@ const TourismDental = () => {
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* Encabezado */}
-        <div className="text-center mb-16">
-          <span className="inline-block mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-[#C9A84C]">
-            — {t("sectionLabel")}
-          </span>
-          <h2
-            id="tourism-heading"
-            className="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight text-white"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            {t("title")}
-          </h2>
-          <div className="w-16 h-[3px] bg-gradient-to-r from-[#C9A84C] to-[#E0BC6A] mx-auto rounded-full" />
-        </div>
+        <SectionHeading id="tourism-heading" title={t("title")} lead={t("lead")} tone="dark" />
 
         {/* Tarjetas info — Por qué Colombia + Servicios incluidos */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
@@ -83,35 +79,38 @@ const TourismDental = () => {
           </article>
         </div>
 
-        {/* Galería de destinos turísticos */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 text-white/90">
-            {t("destinosTitle")}
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {/* Destinos: mosaico con Cartagena en grande; cada foto dice qué tipo de viaje es */}
+        <div className="mb-20">
+          <div className="max-w-2xl mb-8">
+            <h3 className="font-display text-3xl font-semibold text-white">{t("destinosTitle")}</h3>
+            <p className="mt-3 text-white/70 leading-relaxed">{t("destinosLead")}</p>
+          </div>
 
-            {[
-              { src: "/images/turismo-1.webp", key: "cartagena" },
-              { src: "/images/turismo-2.webp", key: "sanAndres" },
-              { src: "/images/turismo-3.webp", key: "chicamocha" },
-              { src: "/images/turismo-4.webp", key: "mompox" },
-            ].map((place) => (
-              <div key={place.key} className="group relative overflow-hidden rounded-2xl shadow-lg border border-[#C9A84C]/10 hover:border-[#C9A84C]/30 transition-colors duration-300">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[280px_280px]">
+            {DESTINATIONS.map((place) => (
+              <figure
+                key={place.key}
+                className={`relative overflow-hidden rounded-2xl min-h-64 ${place.layout}`}
+              >
                 <img
                   src={place.src}
                   alt={t(`destinations.${place.key}.name`)}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-72 object-cover transition duration-500 group-hover:scale-105"
+                  className={`absolute inset-0 w-full h-full object-cover ${place.position}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1527]/85 via-[#0B1527]/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-5">
-                  <p className="text-white text-base font-semibold">{t(`destinations.${place.key}.name`)}</p>
-                  <p className="text-white/70 text-xs mt-0.5">{t(`destinations.${place.key}.description`)}</p>
-                </div>
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060F1E]/90 via-[#060F1E]/25 to-transparent" />
+                <span className="absolute top-4 left-4 bg-[#060F1E]/70 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  {t(`destinations.${place.key}.tag`)}
+                </span>
+                <figcaption className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                  <p className="font-display text-2xl font-semibold text-white">
+                    {t(`destinations.${place.key}.name`)}
+                  </p>
+                  <p className="mt-1 text-sm text-white/80">{t(`destinations.${place.key}.description`)}</p>
+                </figcaption>
+              </figure>
             ))}
-
           </div>
         </div>
 
@@ -122,8 +121,7 @@ const TourismDental = () => {
           <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#C9A84C]/5 rounded-full -ml-20 -mb-20 pointer-events-none" />
 
           <h3
-            className="text-2xl md:text-3xl font-bold mb-8 text-center relative z-10 text-[#0B1527]"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="font-display text-2xl md:text-3xl font-semibold mb-8 text-center relative z-10 text-[#0B1527]"
           >
             {t("processTitle")}
           </h3>

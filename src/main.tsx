@@ -1,13 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
-import "@fontsource/playfair-display/latin-800.css";
-import "@fontsource/poppins/latin-300.css";
-import "@fontsource/poppins/latin-400.css";
-import "@fontsource/poppins/latin-600.css";
-import "@fontsource/poppins/latin-700.css";
+import "@fontsource/fraunces/latin-600.css";
+import "@fontsource/figtree/latin-400.css";
+import "@fontsource/figtree/latin-600.css";
 import "./index.css";
 import App from "./App.tsx";
-import "./i18n";
+import { prepareLanguage } from "./i18n";
+
+// Los textos deben estar cargados antes de hidratar para que coincidan con el HTML generado
+await prepareLanguage();
 
 const root = document.getElementById("root")!;
 const app = (

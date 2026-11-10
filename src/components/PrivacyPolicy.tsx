@@ -36,7 +36,6 @@ const PrivacyPolicy = ({ dialogRef }: PrivacyPolicyProps) => {
         <h2
           id="privacy-title"
           className="text-2xl font-bold text-[#0B1527]"
-          style={{ fontFamily: "'Playfair Display', serif" }}
         >
           {t("title")}
         </h2>

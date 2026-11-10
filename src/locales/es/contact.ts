@@ -1,6 +1,6 @@
 const contact = {
-  sectionLabel: "Hablemos",
-  title: "Contacto",
+  title: "Pide tu valoración virtual gratuita",
+  lead: "Cuéntanos qué necesitas y te respondemos por el medio que prefieras.",
   validation: {
     countryRequired: "Por favor, selecciona un país.",
     invalidEmail: "Por favor, ingresa un correo válido.",
@@ -10,8 +10,17 @@ const contact = {
     email: "Correo electrónico",
     country: "País",
     selectCountry: "Selecciona tu país",
-    phone: "Teléfono / WhatsApp (opcional)",
+    phone: "Teléfono",
     phoneHint: "Incluye el código de país.",
+    contactMethod: "¿Cómo prefieres que te contactemos?",
+    selectContactMethod: "Selecciona una opción",
+    contactMethods: {
+      whatsapp: "WhatsApp",
+      sms: "Mensaje de texto (SMS)",
+      llamada: "Llamada",
+      telegram: "Telegram",
+      correo: "Correo electrónico",
+    },
     invalidPhone: "Escribe solo números, con el código de país. Ejemplo: +57 300 123 4567",
     treatment: "Tratamiento de interés (opcional)",
     selectTreatment: "Selecciona un tratamiento",

@@ -1,6 +1,6 @@
 const contact = {
-  sectionLabel: "Let's talk",
-  title: "Contact",
+  title: "Request your free virtual consultation",
+  lead: "Tell us what you need and we'll reply the way you prefer.",
   validation: {
     countryRequired: "Please select a country.",
     invalidEmail: "Please enter a valid email address.",
@@ -10,8 +10,17 @@ const contact = {
     email: "Email",
     country: "Country",
     selectCountry: "Select your country",
-    phone: "Phone / WhatsApp (optional)",
+    phone: "Phone",
     phoneHint: "Include your country code.",
+    contactMethod: "How would you like us to contact you?",
+    selectContactMethod: "Select an option",
+    contactMethods: {
+      whatsapp: "WhatsApp",
+      sms: "Text message (SMS)",
+      llamada: "Phone call",
+      telegram: "Telegram",
+      correo: "Email",
+    },
     invalidPhone: "Use numbers only, with your country code. Example: +1 555 123 4567",
     treatment: "Treatment of interest (optional)",
     selectTreatment: "Select a treatment",

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../i18n";
+import i18n, { switchLanguage } from "../i18n";
 
 /**
  * Componente Navbar:
@@ -22,7 +22,7 @@ const Navbar = () => {
   ];
 
   const changeLanguage = (lng: "en" | "es") => {
-    i18n.changeLanguage(lng);
+    void switchLanguage(lng);
     setMenuOpen(false);
   };
 
@@ -50,6 +50,8 @@ const Navbar = () => {
         >
           <img
             src="/logo.webp"
+            srcSet="/logo-220.webp 220w, /logo.webp 420w"
+            sizes="(min-width: 1024px) 140px, (min-width: 640px) 132px, 124px"
             alt="Paula Galvis"
             width={420}
             height={525}

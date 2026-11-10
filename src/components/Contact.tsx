@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import SectionHeading from "./SectionHeading";
 
 const EMPTY_FORM = {
   _gotcha: "", // Campo trampa para robots; Formspree descarta los envíos que lo traen lleno
   name: "",
   email: "",
   phone: "",
+  contactMethod: "",
   country: "",
   treatment: "",
   message: "",
@@ -20,6 +22,9 @@ const TREATMENTS = [
   "turismo",
 ] as const;
 
+// Los valores llegan así al correo de la doctora
+const CONTACT_METHODS = ["whatsapp", "sms", "llamada", "telegram", "correo"] as const;
+
 const COUNTRIES = [
   "US", "CA", "GB", "ES", "MX", "PR", "DO", "PA", "CR", "EC", "PE", "CL", "AR", "CO", "OTHER",
 ] as const;
@@ -29,7 +34,7 @@ type ContactProps = {
 };
 
 // Se envía con cada mensaje como prueba de qué política aceptó el titular
-const PRIVACY_POLICY_VERSION = "2026-11";
+const PRIVACY_POLICY_VERSION = "2026-11-3";
 
 /**
  * Componente Contact (Contacto):
@@ -135,20 +140,7 @@ const Contact = ({ onOpenPrivacyPolicy }: ContactProps) => {
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* Encabezado */}
-        <div className="text-center mb-14">
-          <span className="inline-block mb-4 text-xs font-semibold tracking-[0.2em] uppercase text-[#806419]">
-            — {t("sectionLabel")}
-          </span>
-          <h2
-            id="contact-heading"
-            className="text-4xl md:text-5xl font-extrabold text-[#0B1527] tracking-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            {t("title")}
-          </h2>
-          <div className="w-16 h-[3px] bg-gradient-to-r from-[#C9A84C] to-[#E0BC6A] mx-auto mt-5 rounded-full" />
-        </div>
+        <SectionHeading id="contact-heading" title={t("title")} lead={t("lead")} />
 
         {/* Contenedor principal — panel izquierdo + formulario */}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#C9A84C]/10 flex flex-col md:flex-row">
@@ -221,7 +213,7 @@ const Contact = ({ onOpenPrivacyPolicy }: ContactProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-white/80 hover:text-[#C9A84C] transition-colors duration-200"
-                aria-label="Instagram"
+                aria-label="Instagram: Dra. Paula Galvis"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -340,7 +332,7 @@ const Contact = ({ onOpenPrivacyPolicy }: ContactProps) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                  {/* Teléfono (opcional, formato internacional) */}
+                  {/* Teléfono: obligatorio salvo que la persona prefiera correo */}
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-[#0B1527] mb-2 tracking-wide">
                       {t("form.phone")}
@@ -349,6 +341,7 @@ const Contact = ({ onOpenPrivacyPolicy }: ContactProps) => {
                       type="tel"
                       name="phone"
                       id="phone"
+                      required={formData.contactMethod !== "correo"}
                       autoComplete="tel"
                       pattern="\+?[0-9\s\(\)\-]{7,20}"
                       title={t("form.invalidPhone")}
@@ -361,8 +354,31 @@ const Contact = ({ onOpenPrivacyPolicy }: ContactProps) => {
                     <p id="phone-hint" className="text-slate-600 mt-1.5 text-xs">{t("form.phoneHint")}</p>
                   </div>
 
-                  {/* Tratamiento de interés (opcional) */}
+                  {/* Medio de contacto preferido */}
                   <div>
+                    <label htmlFor="contactMethod" className="block text-sm font-semibold text-[#0B1527] mb-2 tracking-wide">
+                      {t("form.contactMethod")}
+                    </label>
+                    <select
+                      id="contactMethod"
+                      name="contactMethod"
+                      required
+                      value={formData.contactMethod}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-[#F3F2EF] border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#C9A84C]/50 focus:border-[#C9A84C] transition-colors outline-none text-sm"
+                    >
+                      <option value="">{t("form.selectContactMethod")}</option>
+                      {CONTACT_METHODS.map((method) => (
+                        <option key={method} value={method}>
+                          {t(`form.contactMethods.${method}`)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Tratamiento de interés (opcional) */}
+                <div>
                     <label htmlFor="treatment" className="block text-sm font-semibold text-[#0B1527] mb-2 tracking-wide">
                       {t("form.treatment")}
                     </label>
@@ -380,7 +396,6 @@ const Contact = ({ onOpenPrivacyPolicy }: ContactProps) => {
                         </option>
                       ))}
                     </select>
-                  </div>
                 </div>
 
                 {/* Mensaje */}
