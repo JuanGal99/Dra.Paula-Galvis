@@ -15,7 +15,7 @@ const isBrowser = typeof window !== "undefined";
 
 const pathForLanguage = (lng: string) => (lng === "es" ? "/es/" : "/");
 
-// El idioma lo define la URL; la redirección por preferencia la hacen Netlify e index.html
+// El idioma lo define la URL; la redirección por preferencia está en index.html
 const languageFromUrl = (): Language =>
   window.location.pathname.startsWith("/es") ? "es" : "en";
 
@@ -53,8 +53,6 @@ export const switchLanguage = async (lng: Language) => {
 
 // localStorage puede lanzar error en modo privado o con almacenamiento bloqueado
 const storeLanguage = (lng: string) => {
-  // Netlify lee esta cookie para no redirigir a /es/ a quien eligió inglés
-  document.cookie = `nf_lang=${lng}; path=/; max-age=31536000; SameSite=Lax`;
   try {
     localStorage.setItem(STORAGE_KEY, lng);
   } catch {
