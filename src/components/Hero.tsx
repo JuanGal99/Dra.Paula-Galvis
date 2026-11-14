@@ -16,8 +16,8 @@ const Hero = () => {
     >
       <div className="relative h-[58vh] min-h-[360px] max-h-[540px] md:absolute md:inset-0 md:h-auto md:min-h-0 md:max-h-none">
         <img
-          src="/images/hero-1800.webp"
-          srcSet="/images/hero-1080.webp 1080w, /images/hero-1800.webp 1800w"
+          src="/images/hero-v2-1800.webp"
+          srcSet="/images/hero-v2-1080.webp 1080w, /images/hero-v2-1800.webp 1800w"
           sizes="100vw"
           alt={t("imageAlt")}
           fetchPriority="high"
