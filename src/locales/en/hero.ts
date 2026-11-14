@@ -3,7 +3,7 @@ const hero = {
   subtitle: "Specialized orthodontics and cosmetic dentistry with Dr. Paula Galvis",
   ctaPrimary: "Free virtual consultation",
   ctaSecondary: "View treatments",
-  credential: "Orthodontics specialist, Universidad Santo Tomás",
+  credential: "Orthodontics specialist, Santo Tomás University",
   imageAlt: "Dr. Paula Galvis smiling",
 };
 
