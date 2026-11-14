@@ -40,7 +40,7 @@ const Navbar = () => {
         {t("skipToContent")}
       </a>
 
-      <div className="max-w-7xl mx-auto h-[82px] px-6 lg:px-8 flex items-center justify-between">
+      <div className="w-full h-[82px] px-6 lg:px-10 xl:px-14 flex items-center justify-between">
 
         {/* LOGO */}
         <a
